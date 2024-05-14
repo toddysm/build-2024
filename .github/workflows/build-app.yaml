@@ -15,6 +15,9 @@ env:
   TARGET_IMAGE_REPO: flaskapp
   TARGET_IMAGE_TAG: ${{ vars.TARGET_IMAGE_TAG }}
   SIGNING_KEY_ID: ${{ vars.SIGNING_KEY_ID }}
+  AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+  AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
 jobs:
   verify-base-image:
