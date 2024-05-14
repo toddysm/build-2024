@@ -77,14 +77,14 @@ function create_continuous_patching_workflow(){
 
 function download_required_artifacts(){
   echo "Downloading required artifacts..."
-  local git_repo_url="https://github.com/siby-george/ACR-CSSC.git"
+  local git_repo_url="https://github.com/pwalecha/ACR-CSSC.git"
   local acrfolder="ACR-CSSC"
   local bicep_file_name="CSSC.bicep"
   if [ -f "$acrfolder/$bicep_file_name" ]; then
 	  echo "File '$bicep_file_name' already cached on your local drive."
   else
 	  echo "Downloading artifacts from git repository..."
-	  git clone -b Cssc-workflow $git_repo_url
+	  git clone -b builddemo $git_repo_url
 	  # Change to the artifacts directory
   fi
 }
