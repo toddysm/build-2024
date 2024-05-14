@@ -49,9 +49,17 @@ jobs:
       - name: Sign into ACR
         run: |
             az acr login --name ${{ env.BASE_IMAGE_REGISTRY }}
+      - name: Scan with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.BASE_IMAGE_REGISTRY }}/${{ env.BASE_IMAGE_REPO }}:${{ env.BASE_IMAGE_TAG }}
+          format: 'table'
+          ignore-unfixed: true
+          vuln-type: 'os'
+          output: 'trivy-results.txt'
       - name: Verify the image has no vulnerabilities
         run: |
-            src/verify-vulnerability-status.sh ${{ env.BASE_IMAGE_REGISTRY }} ${{ env.BASE_IMAGE_REPO }} ${{ env.BASE_IMAGE_TAG }} ${{ env.BASE_IMAGE_DIGEST }}
+            src/verify-vulnerability-status.sh ${{ env.BASE_IMAGE_REGISTRY }} ${{ env.BASE_IMAGE_REPO }} ${{ env.BASE_IMAGE_TAG }}
 
   build-flask-app:
     needs: verify-base-image
