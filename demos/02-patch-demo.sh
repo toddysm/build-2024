@@ -1,4 +1,5 @@
 # Prerequisites:
+# Have Docker running
 az login
 az acr login -n acrbuild2024.azurecr.io   
 
