@@ -37,14 +37,6 @@ jobs:
           echo "SIGNING_KEY_ID: $SIGNING_KEY_ID"
       - name: Checkout the code
         uses: actions/checkout@v4
-      - name: Setup Notation CLI
-        uses: notaryproject/notation-action/setup@v1
-        with:
-          version: "1.0.0"
-      - name: Setup ORAS CLI
-        uses: oras-project/setup-oras@v1
-        with:
-          version: "1.0.0"
       - name: Sign into Azure
         uses: Azure/login@v1
         with:
