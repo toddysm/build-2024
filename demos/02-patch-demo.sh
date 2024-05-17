@@ -1,6 +1,7 @@
 # Prerequisites:
 # Have Docker running
 az login
+docker login ghcr.io
 
 # Demo Steps
 # 0. Sign in to Azure Container Registry
