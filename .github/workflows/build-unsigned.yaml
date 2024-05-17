@@ -1,4 +1,4 @@
-name: build-flask-app
+name: build-unsigned-flask-app
 
 on:
   workflow_dispatch
