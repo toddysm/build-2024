@@ -21,7 +21,6 @@ env:
 
 jobs:
   build-unsigned-flask-app:
-    needs: verify-base-image
     runs-on: ubuntu-latest
     permissions:
       contents: read
